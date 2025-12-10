@@ -1,4 +1,4 @@
-# 🖥️ System Diagnostics & Hardware Discovery Cheat Sheet
+# 🖥️ System Diagnostics & Hardware Discovery Cheat Sheet, Sourced from ChatGPT 5.1
 
 A quick-reference guide for inspecting CPU, RAM, GPU, storage, network interfaces, temperatures, and OS information across Linux and Windows systems.
 
@@ -27,22 +27,22 @@ A quick-reference guide for inspecting CPU, RAM, GPU, storage, network interface
 
 ## 🔧 Essential Linux Service Commands
 
-### **SSH Setup**
+## **SSH Setup**
 ```bash
 sudo apt install openssh-server -y
 sudo systemctl enable ssh
 sudo systemctl start ssh
 sudo systemctl status ssh
-
-### **UFW Firewall Basics**
-sudo apt install ufw -y
+```
+## **UFW Firewall Basics**
+```sudo apt install ufw -y
 sudo ufw allow ssh
 sudo ufw allow 22/tcp
 sudo ufw enable
 sudo ufw status verbose
-
-### **Linux Full Hardware Report**
-#!/bin/bash
+```
+## **Linux Full Hardware Report**
+```#!/bin/bash
 # system_report.sh
 
 OUT="system_report.txt"
@@ -79,10 +79,10 @@ uname -a
 
 echo "Report saved to $OUT"
 read -p 'Press Enter to exit...'
-
+```
 ### **Windows PowerShell Hardware Report**
 # system_report.ps1
-
+```
 $Out = "system_report.txt"
 
 "==== CPU ====" | Out-File $Out
@@ -107,3 +107,4 @@ Get-ComputerInfo | Out-File $Out -Append
 
 Write-Host "Report saved to $Out"
 Read-Host "Press Enter to exit..."
+```
