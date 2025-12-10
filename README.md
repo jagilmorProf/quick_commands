@@ -35,14 +35,16 @@ sudo systemctl start ssh
 sudo systemctl status ssh
 ```
 ## **UFW Firewall Basics**
-```sudo apt install ufw -y
+```bash
+sudo apt install ufw -y
 sudo ufw allow ssh
 sudo ufw allow 22/tcp
 sudo ufw enable
 sudo ufw status verbose
 ```
 ## **Linux Full Hardware Report**
-```#!/bin/bash
+```
+#!/bin/bash
 # system_report.sh
 
 OUT="system_report.txt"
@@ -81,8 +83,9 @@ echo "Report saved to $OUT"
 read -p 'Press Enter to exit...'
 ```
 ### **Windows PowerShell Hardware Report**
-# system_report.ps1
 ```
+# system_report.ps1
+
 $Out = "system_report.txt"
 
 "==== CPU ====" | Out-File $Out
