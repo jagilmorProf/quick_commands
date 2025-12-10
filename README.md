@@ -106,6 +106,14 @@ New-NetFirewallRule -Name "SSH Outbound" -DisplayName "SSH Outbound" -Enabled Tr
 ```
 Get-Service sshd
 ```
+## **Deny inbound SSH on port 22**
+```
+New-NetFirewallRule -Name "SSH Inbound Block" -DisplayName "SSH Inbound Block" -Enabled True -Direction Inbound -Protocol TCP -LocalPort 22 -Action Block
+```
+## **Deny outbound SSH on port 22**
+```
+New-NetFirewallRule -Name "SSH Outbound Block" -DisplayName "SSH Outbound Block" -Enabled True -Direction Outbound -Protocol TCP -RemotePort 22 -Action Block
+```
 ## 🧪 Windows PowerShell Hardware Report Script
 ```# system_report.ps1
 
