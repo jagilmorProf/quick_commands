@@ -82,9 +82,32 @@ uname -a
 echo "Report saved to $OUT"
 read -p 'Press Enter to exit...'
 ```
-### **Windows PowerShell Hardware Report**
+## **Install OpenSSH Server**
 ```
-# system_report.ps1
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+```
+## **Start the SSH Service**
+```
+Start-Service sshd
+```
+## **Enable SSH to Start on Boot**
+```
+Set-Service -Name sshd -StartupType 'Automatic'
+```
+## **Allow inbound SSH on port 22**
+```
+New-NetFirewallRule -Name "SSH Inbound" -DisplayName "SSH Inbound" -Enabled True -Direction Inbound -Protocol TCP -LocalPort 22 -Action Allow
+```
+## **Allow outbound SSH on port 22**
+```
+New-NetFirewallRule -Name "SSH Outbound" -DisplayName "SSH Outbound" -Enabled True -Direction Outbound -Protocol TCP -RemotePort 22 -Action Allow
+```
+## **Verify SSH is Installed & Running**
+```
+Get-Service sshd
+```
+## 🧪 Windows PowerShell Hardware Report Script
+```# system_report.ps1
 
 $Out = "system_report.txt"
 
